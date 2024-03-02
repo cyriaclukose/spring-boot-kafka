@@ -7,7 +7,7 @@ we need to add spring-kafka dependency to the pom.xml to support the kafka in sp
 
   We need to add the configuraion for the producer and consumers in application.yaml file as 
   shown below
-
+```
   server:
   port: 8085
   kafka:
@@ -22,7 +22,7 @@ we need to add spring-kafka dependency to the pom.xml to support the kafka in sp
       group-id: myGroup
       auto-offset-reset: earliest
 
-
+```
 once we have configured the consumers and the producer with bootstrap-server,key-serializer,value-serializer for producer 
 and  bootstrap-servers, key-deserializer,value-serializer,group-id auto-offset-reset we can create the producer to send mesaage to
 kafka broker and consumer to consume the message from kafka broker.
