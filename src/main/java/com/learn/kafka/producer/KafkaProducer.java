@@ -14,4 +14,11 @@ public class KafkaProducer {
 
     }
 
+    public void sendMessage(String message){
+
+        myKafkaTemplate.send("myNewTopic",message);
+
+
+    }
+
 }

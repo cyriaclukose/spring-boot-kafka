@@ -1,5 +1,6 @@
 package com.learn.kafka.rest;
 
+import com.learn.kafka.producer.KafkaProducer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.flogger.Flogger;
 import lombok.extern.slf4j.Slf4j;
@@ -17,14 +18,13 @@ public class DataController {
 
 
     @Autowired
-    private KafkaTemplate<String,String> kafkaTemplate;
+    private KafkaProducer kafkaProducer;
 
     @PostMapping
     public ResponseEntity<String> sendMessage(@RequestBody String message)
     {
 
-        kafkaTemplate.send("myNewTopic",message);
-
+        kafkaProducer.sendMessage(message);
         return ResponseEntity.ok("message queued sucessfully");
     }
 }
